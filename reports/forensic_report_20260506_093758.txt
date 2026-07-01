@@ -1,0 +1,237 @@
+========================================================================
+   IoT FORENSIC INVESTIGATION REPORT
+   Generated : 2026-05-06 09:37:58
+========================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+  Total events    : 6515
+  Anomalies found : 102  (1.6%)
+  Data sources    : sensor, network, application
+  precision         : 0.2857142857142857
+  recall            : 0.5526315789473685
+  f1                : 0.37668161434977576
+  anomaly_rate      : 0.023292663603232452
+  total             : 6311
+  flagged           : 147
+
+EVENT DISTRIBUTION
+----------------------------------------
+   5981x  Normal
+    176x  Network: Normal traffic
+    126x  Weak WiFi Signal
+     83x  Motion Detected
+     83x  Relay1 ON
+     38x  High Temperature
+     28x  Network: DoS burst
+
+TOP ANOMALIES + AI FORENSIC EXPLANATIONS
+----------------------------------------
+
+[#1]  2026-03-29 14:48:00+00:00
+  Source  : network
+  Event   : Network: DoS burst
+  Score   : 9.47000
+
+  AI Explanation:
+    * **What happened**: A sudden burst of network traffic indicative of a Denial of Service (DoS) attack was detected.
+    * **Why it's suspicious**: The network traffic pattern deviated significantly from the normal traffic patterns observed in the preceding minutes.
+    * **Severity**: HIGH - The anomaly score and the nature of the event (DoS burst) indicate a potentially severe security threat.
+    * **Likely root cause**: DoS attack - The sudden and intense increase in network traffic is characteristic of a deliberate attempt to overwhelm the network.
+    * **Recommended action**: immediately block the source IP addresses of the anomalous traffic and notify the incident response team for further investigation and mitigation.
+
+
+[#2]  2026-03-29 14:48:05+00:00
+  Source  : network
+  Event   : Network: DoS burst
+  Score   : 3.52900
+
+  AI Explanation:
+    * **What happened**: A Denial of Service (DoS) burst was detected on the network.
+    * **Why it's suspicious**: The network traffic suddenly spiked, which is unusual compared to the normal traffic patterns.
+    * **Severity**: HIGH - A DoS burst can potentially overwhelm the network, leading to service disruption.
+    * **Likely root cause**: DoS attack - The sudden spike in network traffic suggests a deliberate attempt to flood the network.
+    * **Recommended action**: Immediately block the source IP address of the DoS burst to prevent further disruption and investigate the source of the attack.
+
+
+[#3]  2026-03-29 14:36:00+00:00
+  Source  : network
+  Event   : Network: DoS burst
+  Score   : 1.05900
+
+  AI Explanation:
+    * **What happened**: A Denial of Service (DoS) burst was detected on the network, indicating a potential attack or overload.
+    * **Why it's suspicious**: The network traffic patterns before and after the anomaly show normal traffic, making the sudden burst of traffic unusual and potentially malicious.
+    * **Severity**: HIGH - A DoS burst can cause network disruption and potentially lead to more severe attacks.
+    * **Likely root cause**: DoS attack or network overload, possibly caused by a malicious actor or a misconfigured system.
+    * **Recommended action**: Immediately investigate network logs and traffic patterns to identify the source of the anomaly and consider implementing rate limiting or other security measures to prevent future attacks.
+
+
+[#4]  2026-03-29 19:40:35.103000+00:00
+  Source  : application
+  Event   : Motion Detected
+  Score   : 0.98868
+
+  AI Explanation:
+    * **What happened**: Motion was detected by the application at 19:40:35, following a series of anomalies related to high temperatures, weak WiFi signals, and Relay1 ON events.
+    * **Why it's suspicious**: The sequence of Relay1 ON and high temperature events preceding the motion detection suggests an abnormal pattern, potentially indicating an issue with the smart home system's automation or a physical event.
+    * **Severity**: MEDIUM - The anomalies do not clearly indicate a security breach, but the unusual sequence of events warrants further investigation.
+    * **Likely root cause**: Physical event or sensor fault, potentially related to the high temperature readings.
+    * **Recommended action**: Review the smart home system's automation rules and sensor configurations to ensure they are functioning correctly, and investigate possible physical causes for the high temperature readings.
+
+
+[#5]  2026-03-29 14:48:20+00:00
+  Source  : network
+  Event   : Network: DoS burst
+  Score   : 0.98500
+
+  AI Explanation:
+    * **What happened**: A series of DoS (Denial of Service) bursts were detected on the network, causing anomalies in the system.
+    * **Why it's suspicious**: The frequency and persistence of DoS bursts deviate from the normal network traffic patterns.
+    * **Severity**: HIGH - The repeated DoS bursts suggest a potential attack or malfunction that could compromise the system's security and functionality.
+    * **Likely root cause**: DoS attack or misconfiguration - The bursts may be caused by an external attack or a misconfigured network device.
+    * **Recommended action**: Immediately investigate network logs and device configurations to identify the source of the DoS bursts and take corrective action to prevent further anomalies.
+
+
+[#6]  2026-03-29 19:40:50.151000+00:00
+  Source  : sensor
+  Event   : Normal
+  Score   : 0.97563
+
+  AI Explanation:
+    * **What happened**: The system detected multiple anomalies, including high temperatures, relay activations, and weak WiFi signals, followed by a return to normal sensor readings.
+    * **Why it's suspicious**: The rapid succession of anomalies and the mix of high temperatures and relay activations are unusual and do not align with expected normal patterns.
+    * **Severity**: MEDIUM - The anomalies could indicate a physical issue, such as a faulty sensor or equipment malfunction, but do not necessarily suggest a security breach.
+    * **Likely root cause**: Sensor fault or physical event, such as a temporary environmental change or equipment malfunction.
+    * **Recommended action**: Investigate the sensor and relay equipment to determine if there is a hardware issue or if the anomalies were caused by a temporary environmental factor.
+
+
+[#7]  2026-03-29 17:57:13.209000+00:00
+  Source  : sensor
+  Event   : Weak WiFi Signal
+  Score   : 0.95207
+
+  AI Explanation:
+    * **What happened**: The WiFi signal strength dropped, causing a series of anomalies to be detected.
+    * **Why it's suspicious**: The sudden and repeated drops in WiFi signal strength are unusual compared to the normal, stable signal strength observed prior to the anomalies.
+    * **Severity**: MEDIUM - The dropped WiFi signal may indicate a potential issue with the network or a device, but it does not necessarily indicate a malicious attack.
+    * **Likely root cause**: Physical event (e.g., interference from another device or a change in the environment) or sensor fault.
+    * **Recommended action**: Check the WiFi network and nearby devices for potential sources of interference or issues, and consider restarting the router or sensor to resolve the issue.
+
+
+[#8]  2026-03-29 19:41:05.138000+00:00
+  Source  : sensor
+  Event   : Normal
+  Score   : 0.94166
+
+  AI Explanation:
+    * **What happened**: Relay1 was turned on and off repeatedly, with high temperature and weak WiFi signal readings.
+    * **Why it's suspicious**: This pattern deviates from expected normal operation, where Relay1 is typically controlled in a more predictable manner.
+    * **Severity**: MEDIUM - The anomalies could indicate a malfunction or unauthorized access, but do not immediately suggest a critical security breach.
+    * **Likely root cause**: Misconfiguration or sensor fault, potentially triggering Relay1 to oscillate unnecessarily.
+    * **Recommended action**: Investigate Relay1's control logic and sensor calibration to determine the cause of the oscillations.
+
+FULL FLAGGED TIMELINE
+----------------------------------------
+  [2026-03-29 10:11:30.687000+00:00]  [      SENSOR]  score=0.6005  Motion Detected
+  [2026-03-29 10:11:45.685000+00:00]  [      SENSOR]  score=0.6004  High Temperature
+  [2026-03-29 10:12:00.685000+00:00]  [      SENSOR]  score=0.6004  Motion Detected
+  [2026-03-29 10:12:15.715000+00:00]  [      SENSOR]  score=0.6006  High Temperature
+  [2026-03-29 10:12:30.712000+00:00]  [      SENSOR]  score=0.6008  High Temperature
+  [2026-03-29 10:12:30.713000+00:00]  [      SENSOR]  score=0.6155  High Temperature
+  [2026-03-29 10:12:45.705000+00:00]  [      SENSOR]  score=0.6157  High Temperature
+  [2026-03-29 10:13:00.701000+00:00]  [      SENSOR]  score=0.6157  Motion Detected
+  [2026-03-29 10:13:15.711000+00:00]  [      SENSOR]  score=0.6158  High Temperature
+  [2026-03-29 10:13:30.739000+00:00]  [      SENSOR]  score=0.6158  High Temperature
+  [2026-03-29 10:49:56.115000+00:00]  [      SENSOR]  score=0.7277  Normal
+  [2026-03-29 12:43:18.340000+00:00]  [      SENSOR]  score=0.6566  Normal
+  [2026-03-29 14:34:10+00:00]  [     NETWORK]  score=0.5630  Network: DoS burst
+  [2026-03-29 14:35:10+00:00]  [     NETWORK]  score=0.6800  Network: DoS burst
+  [2026-03-29 14:36:00+00:00]  [     NETWORK]  score=1.0590  Network: DoS burst
+  [2026-03-29 14:36:05+00:00]  [     NETWORK]  score=0.7800  Network: DoS burst
+  [2026-03-29 14:36:10+00:00]  [     NETWORK]  score=0.7770  Network: DoS burst
+  [2026-03-29 14:37:10+00:00]  [     NETWORK]  score=0.6720  Network: DoS burst
+  [2026-03-29 14:37:20+00:00]  [     NETWORK]  score=0.8670  Network: DoS burst
+  [2026-03-29 14:38:05+00:00]  [     NETWORK]  score=0.5610  Network: DoS burst
+  [2026-03-29 14:38:10+00:00]  [     NETWORK]  score=0.7720  Network: DoS burst
+  [2026-03-29 14:38:45+00:00]  [     NETWORK]  score=0.5080  Network: DoS burst
+  [2026-03-29 14:39:05+00:00]  [     NETWORK]  score=0.7380  Network: DoS burst
+  [2026-03-29 14:39:10+00:00]  [     NETWORK]  score=0.8010  Network: DoS burst
+  [2026-03-29 14:40:10+00:00]  [     NETWORK]  score=0.7970  Network: DoS burst
+  [2026-03-29 14:41:05+00:00]  [     NETWORK]  score=0.5570  Network: DoS burst
+  [2026-03-29 14:41:10+00:00]  [     NETWORK]  score=0.7570  Network: DoS burst
+  [2026-03-29 14:42:10+00:00]  [     NETWORK]  score=0.8440  Network: DoS burst
+  [2026-03-29 14:43:10+00:00]  [     NETWORK]  score=0.7560  Network: DoS burst
+  [2026-03-29 14:44:10+00:00]  [     NETWORK]  score=0.8050  Network: DoS burst
+  [2026-03-29 14:45:10+00:00]  [     NETWORK]  score=0.7780  Network: DoS burst
+  [2026-03-29 14:46:10+00:00]  [     NETWORK]  score=0.7570  Network: DoS burst
+  [2026-03-29 14:47:10+00:00]  [     NETWORK]  score=0.7590  Network: DoS burst
+  [2026-03-29 14:47:53.735000+00:00]  [      SENSOR]  score=0.6001  Normal
+  [2026-03-29 14:47:54.594000+00:00]  [ APPLICATION]  score=0.6015  Relay1 ON
+  [2026-03-29 14:47:56.598000+00:00]  [      SENSOR]  score=0.6008  Relay1 ON
+  [2026-03-29 14:48:00+00:00]  [     NETWORK]  score=9.4700  Network: DoS burst
+  [2026-03-29 14:48:05+00:00]  [     NETWORK]  score=3.5290  Network: DoS burst
+  [2026-03-29 14:48:10+00:00]  [     NETWORK]  score=0.8940  Network: DoS burst
+  [2026-03-29 14:48:10.623000+00:00]  [      SENSOR]  score=0.6004  Relay1 ON
+  [2026-03-29 14:48:12.625000+00:00]  [ APPLICATION]  score=0.6006  Relay1 ON
+  [2026-03-29 14:48:20+00:00]  [     NETWORK]  score=0.9850  Network: DoS burst
+  [2026-03-29 14:48:22.638000+00:00]  [ APPLICATION]  score=0.6011  Relay1 ON
+  [2026-03-29 14:48:23.727000+00:00]  [      SENSOR]  score=0.6021  Normal
+  [2026-03-29 14:48:24.644000+00:00]  [      SENSOR]  score=0.6037  Motion Detected
+  [2026-03-29 14:48:26.644000+00:00]  [ APPLICATION]  score=0.6029  Relay1 ON
+  [2026-03-29 14:48:28.644000+00:00]  [ APPLICATION]  score=0.6021  Relay1 ON
+  [2026-03-29 14:48:30+00:00]  [     NETWORK]  score=0.8360  Network: DoS burst
+  [2026-03-29 14:48:30.648000+00:00]  [      SENSOR]  score=0.6021  Relay1 ON
+  [2026-03-29 14:49:10+00:00]  [     NETWORK]  score=0.6820  Network: DoS burst
+  [2026-03-29 14:50:10+00:00]  [     NETWORK]  score=0.6530  Network: DoS burst
+  [2026-03-29 17:54:56.105000+00:00]  [      SENSOR]  score=0.9207  Normal
+  [2026-03-29 17:55:11.121000+00:00]  [      SENSOR]  score=0.6540  Normal
+  [2026-03-29 17:55:26.123000+00:00]  [      SENSOR]  score=0.6171  Normal
+  [2026-03-29 17:55:41.175000+00:00]  [      SENSOR]  score=0.6269  Normal
+  [2026-03-29 17:55:56.109000+00:00]  [      SENSOR]  score=0.6144  Normal
+  [2026-03-29 17:56:11.120000+00:00]  [      SENSOR]  score=0.6208  Normal
+  [2026-03-29 17:57:13.209000+00:00]  [      SENSOR]  score=0.9521  Weak WiFi Signal
+  [2026-03-29 17:57:26.124000+00:00]  [      SENSOR]  score=0.7108  Normal
+  [2026-03-29 17:57:56.136000+00:00]  [      SENSOR]  score=0.9354  Weak WiFi Signal
+  [2026-03-29 17:58:12.181000+00:00]  [      SENSOR]  score=0.8576  Weak WiFi Signal
+  [2026-03-29 17:58:26.120000+00:00]  [      SENSOR]  score=0.7021  Normal
+  [2026-03-29 17:58:41.194000+00:00]  [      SENSOR]  score=0.6567  Normal
+  [2026-03-29 17:59:26.152000+00:00]  [      SENSOR]  score=0.8801  Normal
+  [2026-03-29 17:59:41.237000+00:00]  [      SENSOR]  score=0.8607  Weak WiFi Signal
+  [2026-03-29 17:59:56.136000+00:00]  [      SENSOR]  score=0.6848  Normal
+  [2026-03-29 18:00:11.134000+00:00]  [      SENSOR]  score=0.6819  Normal
+  [2026-03-29 18:00:26.131000+00:00]  [      SENSOR]  score=0.7013  Normal
+  [2026-03-29 18:00:41.134000+00:00]  [      SENSOR]  score=0.6911  Normal
+  [2026-03-29 18:00:56.150000+00:00]  [      SENSOR]  score=0.7073  Normal
+  [2026-03-29 19:32:20.190000+00:00]  [ APPLICATION]  score=0.6068  Relay1 ON
+  [2026-03-29 19:32:22.190000+00:00]  [ APPLICATION]  score=0.6129  Motion Detected
+  [2026-03-29 19:32:24.186000+00:00]  [ APPLICATION]  score=0.6191  Relay1 ON
+  [2026-03-29 19:32:24.186000+00:00]  [      SENSOR]  score=0.6213  High Temperature
+  [2026-03-29 19:32:26.192000+00:00]  [      SENSOR]  score=0.6216  High Temperature
+  [2026-03-29 19:32:26.192000+00:00]  [ APPLICATION]  score=0.6238  Relay1 ON
+  [2026-03-29 19:32:28.196000+00:00]  [      SENSOR]  score=0.6230  High Temperature
+  [2026-03-29 19:32:28.197000+00:00]  [ APPLICATION]  score=0.6242  Relay1 ON
+  [2026-03-29 19:32:30.216000+00:00]  [      SENSOR]  score=0.6242  High Temperature
+  [2026-03-29 19:32:30.217000+00:00]  [ APPLICATION]  score=0.6263  Relay1 ON
+  [2026-03-29 19:32:32.252000+00:00]  [      SENSOR]  score=0.6242  High Temperature
+  [2026-03-29 19:32:32.252000+00:00]  [ APPLICATION]  score=0.6260  Relay1 ON
+  [2026-03-29 19:32:34.202000+00:00]  [      SENSOR]  score=0.6238  High Temperature
+  [2026-03-29 19:32:34.203000+00:00]  [ APPLICATION]  score=0.6256  Relay1 ON
+  [2026-03-29 19:32:35.402000+00:00]  [      SENSOR]  score=0.6242  Normal
+  [2026-03-29 19:32:36.310000+00:00]  [ APPLICATION]  score=0.6255  Relay1 ON
+  [2026-03-29 19:32:36.310000+00:00]  [      SENSOR]  score=0.6255  High Temperature
+  [2026-03-29 19:32:38.210000+00:00]  [      SENSOR]  score=0.6273  High Temperature
+  [2026-03-29 19:32:38.210000+00:00]  [ APPLICATION]  score=0.6255  Relay1 ON
+  [2026-03-29 19:32:40.217000+00:00]  [ APPLICATION]  score=0.6250  Relay1 ON
+  [2026-03-29 19:32:40.217000+00:00]  [      SENSOR]  score=0.6252  High Temperature
+  [2026-03-29 19:32:59.622000+00:00]  [      SENSOR]  score=0.6244  Weak WiFi Signal
+  [2026-03-29 19:33:05.120000+00:00]  [      SENSOR]  score=0.6210  Normal
+  [2026-03-29 19:33:20.236000+00:00]  [      SENSOR]  score=0.6136  Normal
+  [2026-03-29 19:40:35.103000+00:00]  [ APPLICATION]  score=0.9887  Motion Detected
+  [2026-03-29 19:40:50.151000+00:00]  [      SENSOR]  score=0.9756  Normal
+  [2026-03-29 19:41:05.138000+00:00]  [      SENSOR]  score=0.9417  Normal
+  [2026-03-29 19:41:20.141000+00:00]  [      SENSOR]  score=0.9271  Normal
+  [2026-03-29 19:41:35.131000+00:00]  [      SENSOR]  score=0.8871  Normal
+  [2026-03-29 19:41:50.161000+00:00]  [      SENSOR]  score=0.8546  Normal
+  [2026-03-29 19:42:05.146000+00:00]  [      SENSOR]  score=0.6739  Normal
+  [2026-03-29 19:42:20.277000+00:00]  [      SENSOR]  score=0.6718  Normal
